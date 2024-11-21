@@ -1,5 +1,9 @@
-@import 'libs/openchallenges/styles-tailwind/src/index.css';
-@import 'libs/openchallenges/themes-tailwind/src/index.css';
+// @use 'libs/openchallenges/styles-tailwind/src/index';
+// @use 'libs/openchallenges/themes-tailwind/src/index';
+
+@use './mat_theme';
+@use './tw_theme';
+@use './tw_constants';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

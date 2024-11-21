@@ -8,6 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, RouterModule, MatButtonModule],
   templateUrl: './not-found-tailwind.component.html',
-  styleUrl: './not-found-tailwind.component.css',
+  styleUrl: './not-found-tailwind.component.scss',
 })
 export class NotFoundTailwindComponent {}

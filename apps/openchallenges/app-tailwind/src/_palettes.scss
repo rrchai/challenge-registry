@@ -1,16 +1,19 @@
 @use 'sass:map';
+@use 'sass:meta';
 
-// Color variables
-$dark-primary-text: rgba(black, 0.87);
-$dark-secondary-text: rgba(black, 0.54);
-$dark-disabled-text: rgba(black, 0.38);
-$dark-dividers: rgba(black, 0.12);
-$dark-focused: rgba(black, 0.12);
-$light-primary-text: white;
-$light-secondary-text: rgba(white, 0.7);
-$light-disabled-text: rgba(white, 0.5);
-$light-dividers: rgba(white, 0.12);
-$light-focused: rgba(white, 0.12);
+// Text Colors
+$dark-primary-text: rgb(0 0 0 / 87%);
+$dark-secondary-text: rgb(0 0 0 / 54%);
+$dark-disabled-text: rgb(0 0 0 / 38%);
+$dark-dividers: rgb(0 0 0 / 12%);
+$dark-focused: rgb(0 0 0 / 12%);
+$light-primary-text: rgb(255 255 255 / 100%);
+$light-secondary-text: rgb(255 255 255 / 70%);
+$light-disabled-text: rgb(255 255 255 / 50%);
+$light-dividers: rgb(255 255 255 / 12%);
+$light-focused: rgb(255 255 255 / 12%);
+
+// Dark blue palette
 $dark-blue-palette: (
   50: #e8ebf5,
   100: #c4cce7,
@@ -35,6 +38,8 @@ $dark-blue-palette: (
     900: $light-primary-text,
   ),
 );
+
+// Light blue palette
 $light-blue-palette: (
   50: #dff4fb,
   100: #ade3f4,
@@ -59,6 +64,8 @@ $light-blue-palette: (
     900: $light-primary-text,
   ),
 );
+
+// Light Green Palette
 $light-green-palette: (
   50: #e8fefb,
   100: #c6fdf3,
@@ -83,6 +90,8 @@ $light-green-palette: (
     900: $dark-primary-text,
   ),
 );
+
+// Light purple palette
 $light-purple-palette: (
   50: #ede8ff,
   100: #d0c6fd,
@@ -112,20 +121,63 @@ $light-purple-palette: (
 $accent-green-palette: $light-green-palette;
 $accent-purple-palette: $light-purple-palette;
 
-// Figma palettes variables
+// Figma colors
 $figma-collection: (
-  dl-color-default-navbar: map.get($dark-blue-palette, 600),
-  dl-color-default-accent1: map.get($accent-green-palette, 100),
-  dl-color-default-accent2: map.get($accent-purple-palette, 50),
-  dl-color-default-primary1: map.get($dark-blue-palette, 400),
-  dl-color-default-primary2: $dark-focused,
-  dl-color-default-navbardark: map.get($dark-blue-palette, 800),
-  dl-color-default-secondary1: map.get($light-blue-palette, 300),
-  dl-color-default-secondary2: map.get($accent-purple-palette, 300),
-  dl-color-default-darkaccent1: map.get($accent-green-palette, 700),
-  dl-color-default-darkaccent2: map.get($accent-purple-palette, 200),
-  dl-color-gray-black: #000,
-  dl-color-gray-white: #fff,
-  dl-color-default-hover1: rgb(249 249 249 / 100%),
-  dl-color-default-hover2: rgb(229 229 229 / 100%),
+  navbar: map.get($dark-blue-palette, 600),
+  accent1: map.get($light-green-palette, 100),
+  accent2: map.get($light-purple-palette, 50),
+  primary1: map.get($dark-blue-palette, 400),
+  primary2: $dark-focused,
+  navbardark: map.get($dark-blue-palette, 800),
+  secondary1: map.get($light-blue-palette, 300),
+  secondary2: map.get($light-purple-palette, 300),
+  darkaccent1: map.get($light-green-palette, 700),
+  darkaccent2: map.get($light-purple-palette, 200),
+  gray-black: #000,
+  gray-white: #fff,
+  hover-light: rgb(249 249 249),
+  hover-dark: rgb(229 229 229),
 );
+
+// Export main palette colors (excluding `contrast`)
+:root {
+  @each $key, $value in $dark-blue-palette {
+    @if meta.type-of($value) != map {
+      --color-dark-blue-#{$key}: #{$value};
+    }
+  }
+
+  @each $key, $value in $light-blue-palette {
+    @if meta.type-of($value) != map {
+      --color-light-blue-#{$key}: #{$value};
+    }
+  }
+
+  @each $key, $value in $light-green-palette {
+    @if meta.type-of($value) != map {
+      --color-light-green-#{$key}: #{$value};
+    }
+  }
+
+  @each $key, $value in $light-purple-palette {
+    @if meta.type-of($value) != map {
+      --color-light-purple-#{$key}: #{$value};
+    }
+  }
+
+  @each $key, $value in $accent-green-palette {
+    @if meta.type-of($value) != map {
+      --color-accent-green-#{$key}: #{$value};
+    }
+  }
+
+  @each $key, $value in $accent-purple-palette {
+    @if meta.type-of($value) != map {
+      --color-accent-purple-#{$key}: #{$value};
+    }
+  }
+
+  @each $key, $value in $figma-collection {
+    --figma-#{$key}: #{$value};
+  }
+}

@@ -38,6 +38,9 @@
           }
         ],
         "styles": ["apps/openchallenges/app-tailwind/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/openchallenges/styles-tailwind/src"]
+        },
         "scripts": [],
         "server": "apps/openchallenges/app-tailwind/src/main.server.ts",
         "prerender": true,

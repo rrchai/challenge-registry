@@ -1,10 +1,4 @@
-// @use 'libs/openchallenges/styles-tailwind/src/index';
-// @use 'libs/openchallenges/themes-tailwind/src/index';
-
-@use './material_theme';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use 'lib/themes/index';
 
 /* You can add global styles to this file, and also import other style files */
 
